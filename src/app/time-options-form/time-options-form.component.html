@@ -1,0 +1,26 @@
+<ng-container *ngFor="let timeOptionForm of timeOptions; let i = index">
+  <div [formGroup]="timeOptionForm" class="time-option">
+    <mat-form-field>
+      <input matInput placeholder="Time (HH:mm)" formControlName="time">
+      <mat-error *ngIf="timeOptionForm.get('time')?.hasError('required')">Time is required</mat-error>
+      <mat-error *ngIf="timeOptionForm.get('time')?.hasError('invalidTime')">Invalid time format (HH:mm)</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>State</mat-label>
+      <mat-select formControlName="state">
+        <mat-option value="on">On</mat-option>
+        <mat-option value="off">Off</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="warn" (click)="onDelete(i)">Delete</button>
+  </div>
+</ng-container>
+
+<!-- Add extra space after time options -->
+<div class="button-group">
+  <button mat-raised-button color="primary" (click)="onAdd()">Add</button>
+  <button mat-raised-button color="accent" (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="warn" (click)="onSave()">OK</button>
+</div>

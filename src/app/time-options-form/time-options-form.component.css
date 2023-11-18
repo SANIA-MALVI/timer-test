@@ -1,0 +1,31 @@
+/* Add these styles to align items in the time-option container */
+.time-option {
+  display: flex;
+  flex-direction: row; /* Make it a row layout */
+  gap: 10px; /* Adjust the gap to your preference */
+  align-items: center; /* Align items vertically in the center */
+  justify-content: center; /* Center the entire container horizontally */
+}
+
+/* Add these styles to create space for validation error messages */
+.time-option mat-error {
+  margin-top: 5px; /* Adjust the margin-top to create space for validation error messages */
+}
+
+/* Additional styles for form controls to prevent unintended expansion */
+.time-option mat-form-field {
+  width: 200px; /* Adjust the width to a fixed value */
+}
+
+.time-option button {
+  width: auto; /* Let the button take the necessary width */
+}
+
+/* Add these styles to align items in the button-group container */
+.button-group {
+  display: flex;
+  flex-direction: row; /* Make it a row layout */
+  gap: 10px; /* Adjust the gap to your preference */
+  justify-content: center; /* Center the entire container horizontally */
+  margin-top: 2px; /* Add margin-top to create space */
+}
