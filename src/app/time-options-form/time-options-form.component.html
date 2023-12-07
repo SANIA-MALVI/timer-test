@@ -1,26 +1,65 @@
-<ng-container *ngFor="let timeOptionForm of timeOptions; let i = index">
-  <div [formGroup]="timeOptionForm" class="time-option">
+<form [formGroup]="timeOptionsForm">
+  <!-- First set of controls -->
+  <div formGroupName="set1" class="time-option">
+    <mat-checkbox formControlName="isChecked">Enable Time</mat-checkbox>
+
     <mat-form-field>
       <input matInput placeholder="Time (HH:mm)" formControlName="time">
-      <mat-error *ngIf="timeOptionForm.get('time')?.hasError('required')">Time is required</mat-error>
-      <mat-error *ngIf="timeOptionForm.get('time')?.hasError('invalidTime')">Invalid time format (HH:mm)</mat-error>
+      <mat-error *ngIf="timeOptionsForm.get('set1.time')?.hasError('required')">Time is required</mat-error>
+      <mat-error *ngIf="timeOptionsForm.get('set1.time')?.hasError('pattern')">Invalid time format (HH:mm)</mat-error>
     </mat-form-field>
+
+    <mat-button-toggle-group formControlName="state">
+      <mat-button-toggle value="on">On</mat-button-toggle>
+      <mat-button-toggle value="off">Off</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+  <!-- Second set of controls -->
+  <div formGroupName="set2" class="time-option">
+    <mat-checkbox formControlName="isChecked">Enable Time</mat-checkbox>
 
     <mat-form-field>
-      <mat-label>State</mat-label>
-      <mat-select formControlName="state">
-        <mat-option value="on">On</mat-option>
-        <mat-option value="off">Off</mat-option>
-      </mat-select>
+      <input matInput placeholder="Time (HH:mm)" formControlName="time">
+      <mat-error *ngIf="timeOptionsForm.get('set2.time')?.hasError('required')">Time is required</mat-error>
+      <mat-error *ngIf="timeOptionsForm.get('set2.time')?.hasError('pattern')">Invalid time format (HH:mm)</mat-error>
     </mat-form-field>
 
-    <button mat-raised-button color="warn" (click)="onDelete(i)">Delete</button>
+    <mat-button-toggle-group formControlName="state">
+      <mat-button-toggle value="on">On</mat-button-toggle>
+      <mat-button-toggle value="off">Off</mat-button-toggle>
+    </mat-button-toggle-group>
   </div>
-</ng-container>
 
-<!-- Add extra space after time options -->
-<div class="button-group">
-  <button mat-raised-button color="primary" (click)="onAdd()">Add</button>
-  <button mat-raised-button color="accent" (click)="onCancel()">Cancel</button>
-  <button mat-raised-button color="warn" (click)="onSave()">OK</button>
-</div>
+  <!-- Third set of controls -->
+  <div formGroupName="set3" class="time-option">
+    <mat-checkbox formControlName="isChecked">Enable Time</mat-checkbox>
+
+    <mat-form-field>
+      <input matInput placeholder="Time (HH:mm)" formControlName="time">
+      <mat-error *ngIf="timeOptionsForm.get('set3.time')?.hasError('required')">Time is required</mat-error>
+      <mat-error *ngIf="timeOptionsForm.get('set3.time')?.hasError('pattern')">Invalid time format (HH:mm)</mat-error>
+    </mat-form-field>
+
+    <mat-button-toggle-group formControlName="state">
+      <mat-button-toggle value="on">On</mat-button-toggle>
+      <mat-button-toggle value="off">Off</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+  <!-- Fourth set of controls -->
+  <div formGroupName="set4" class="time-option">
+    <mat-checkbox formControlName="isChecked">Enable Time</mat-checkbox>
+
+    <mat-form-field>
+      <input matInput placeholder="Time (HH:mm)" formControlName="time">
+      <mat-error *ngIf="timeOptionsForm.get('set4.time')?.hasError('required')">Time is required</mat-error>
+      <mat-error *ngIf="timeOptionsForm.get('set4.time')?.hasError('pattern')">Invalid time format (HH:mm)</mat-error>
+    </mat-form-field>
+
+    <mat-button-toggle-group formControlName="state">
+      <mat-button-toggle value="on">On</mat-button-toggle>
+      <mat-button-toggle value="off">Off</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+</form>
